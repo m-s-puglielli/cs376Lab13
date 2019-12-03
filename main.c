@@ -1,6 +1,6 @@
 /**
  * main.c
- * 
+ *
  * The main entrypoint of the "I really love robots" program.  The
  * program prints the phrase "I really love robots!" to the screen.
  *
@@ -9,21 +9,27 @@
  *
  */
 #include "robot.h"
+#include <ctype.h>
 
 /**
  * main()
  *
  * The main entrypoint of the program.
- * 
+ *
  * @param command line arguments.
- * 
+ *
  * @returns nothing.
  */
-int main(int argc, const char * argv[])
+int main(int argc, const char *argv[])
 {
+
   robotPrintAscii();
-  dalekPrintAscii();
-  robotPrintMessage();
+
+  if (argc > 1 && isdigit(*(argv[1])))
+  {
+    dalekPrintAscii();
+    robotPrintMessage();
+  }
 
   return 0;
 }
